@@ -136,7 +136,7 @@ namespace System.Runtime.CompilerServices
                     }
                     else if (type.IsNestedAssembly ||
                              type.IsNestedFamilyOrAssembly ||
-                             type.IsNestedFamilyAndAssembly)
+                             type.IsNestedFamilyAndAssembly || type.IsNestedPrivate)
                     {
                         type.IsNestedPublic = true;
                     }
@@ -145,7 +145,7 @@ namespace System.Runtime.CompilerServices
                     {
                         if (field.IsAssembly ||
                             field.IsFamilyOrAssembly ||
-                            field.IsFamilyAndAssembly)
+                            field.IsFamilyAndAssembly || field.IsPrivate)
                         {
                             field.IsPublic = true;
                         }
@@ -163,7 +163,7 @@ namespace System.Runtime.CompilerServices
 
                         if (method.IsAssembly ||
                             method.IsFamilyOrAssembly ||
-                            method.IsFamilyAndAssembly)
+                            method.IsFamilyAndAssembly || method.IsPrivate)
                         {
                             method.IsPublic = true;
                         }
